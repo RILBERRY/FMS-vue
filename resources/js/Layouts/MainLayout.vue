@@ -16,6 +16,7 @@ const showingNavigationDropdown = ref(true);
             <nav :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class=" w-52 bg-blue-600 h-screen">
                 <NavLink :href="route('dashboard')">DASHBOARD</NavLink>
                 <NavLink :href="route('dashboard')">TRANSACTION</NavLink>
+                <NavLink :href="route('dashboard')">TRANSACTION</NavLink>
             </nav>
         </div>
         <div class="min-h-screen  bg-gray-100 w-full">
