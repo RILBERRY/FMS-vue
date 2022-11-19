@@ -7,19 +7,53 @@ import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/inertia-vue3';
 
-const showingNavigationDropdown = ref(true);
+const showingNavigationDropdown = ref(false);
+const showingSubNavigationTransLinks = ref(false);
+const showingSubNavigationSettlLinks = ref(false);
+const showingSubNavigationRepoLinks = ref(false);
 </script>
 
 <template>
-    <div class="h-screen w-screen overflow-hidden flex">
-        <div class="flex">
-            <nav :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class=" w-52 bg-blue-600 h-screen">
-                <NavLink :href="route('dashboard')">DASHBOARD</NavLink>
-                <NavLink :href="route('dashboard')">TRANSACTION</NavLink>
-                <NavLink :href="route('dashboard')">TRANSACTION</NavLink>
-            </nav>
+    <div class="h-screen w-screen overflow-hidden flex ">
+        <div :class="{'w-72 ': showingNavigationDropdown, 'w-0': ! showingNavigationDropdown}"  class="flex flex-col flex-none bg-blue-600 transition-all duration-300 ease-in text-white overflow-hidden">
+            <h3 class="text-center p-2 font-bold text-2xl shadow-lg w-72">Fuel Management MV</h3>
+            <div class=" flex-none w-56 mx-auto pb-10 h-[100vh] overflow-y-auto scrollbar-hide">
+                <div class=" text-center my-10 flex flex-col space-y-5">
+                    <div class="w-40 h-40 m-auto rounded-[50%] overflow-hidden">
+                        <img src="/img/user-img.png" alt="" srcset="">
+                    </div>
+                    <div>
+                        <h3>Ali Rilwan</h3>
+                        <h3>Lead Developer</h3>
+                    </div>
+                    <h3 class="text-xl font-semibold">Guarantee Fuel Pvt Ltd</H3>
+                </div>
+                <nav class="flex flex-col " >
+                    <NavLink class="hover:pl-5" :href="route('dashboard')" >DASHBOARD</NavLink>
+                    <button @click="showingSubNavigationTransLinks = !showingSubNavigationTransLinks" class="inline-flex items-center p-2 mt-4 w-full text-sm font-medium leading-5 text-white rounded-lg hover:bg-white hover:text-gray-900 hover:pl-5 transition-all duration-300 ">TRANSACTION</button>
+                    <div  class="flex flex-col ml-5 bg-blue-600 transition-all duration-500 ease-out text-white overflow-hidden " :class="{'h-56 opacity-100': showingSubNavigationTransLinks, ' h-0 opacity-20 ': ! showingSubNavigationTransLinks}" >
+                        <NavLink class="hover:pl-5" :href="route('invoice')" >Invoices</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Delivery</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Purchases</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Expenses</NavLink>
+                    </div>
+                    <button @click="showingSubNavigationSettlLinks = !showingSubNavigationSettlLinks" class="inline-flex items-center p-2 mt-4 w-full text-sm font-medium leading-5 text-white rounded-lg hover:bg-white hover:text-gray-900 hover:pl-5 transition-all duration-300 ">SETTLEMENT</button>
+                    <div  class="flex flex-col ml-5 bg-blue-600 transition-all duration-500 ease-out text-white overflow-hidden " :class="{'h-28 opacity-100': showingSubNavigationSettlLinks, ' h-0 opacity-20 ': ! showingSubNavigationSettlLinks}" >
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Sales Closing</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Stock Closing</NavLink>
+                        <!-- <NavLink class="hover:pl-5" :href="route('dashboard')" >Purchases</NavLink> -->
+                    </div>
+                    <button @click="showingSubNavigationRepoLinks = !showingSubNavigationRepoLinks" class="inline-flex items-center p-2 mt-4 w-full text-sm font-medium leading-5 text-white rounded-lg hover:bg-white hover:text-gray-900 hover:pl-5 transition-all duration-300 ">REPORTS</button>
+                    <div  class="flex flex-col ml-5 bg-blue-600 transition-all duration-500 ease-out text-white overflow-hidden " :class="{'h-40 opacity-100': showingSubNavigationRepoLinks, ' h-0 opacity-20 ': ! showingSubNavigationRepoLinks}" >
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Sales Report</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Stock Report</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" >GST report</NavLink>
+                    </div>
+                   <NavLink class="hover:pl-5" :href="route('dashboard')" >SETTING</NavLink>
+                </nav>
+            </div>
         </div>
-        <div class="min-h-screen  bg-gray-100 w-full">
+        <div class="min-h-screen  bg-gray-100 flex-1">
             <div class="bg-white shadow-lg border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="px-4 sm:px-6 lg:px-8">

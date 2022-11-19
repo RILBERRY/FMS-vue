@@ -14,8 +14,25 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            animation: {
+                Spinner: 'Spinner 10s linear infinite '
+            },
+            keyframes: {
+                Spinner: {
+                    '0%' :{
+                        transform : 'rotate(0deg)'
+                    },
+                    '100%' : {
+                        transform : 'rotate(360deg)'
+                        
+                    }   
+                }
+            }
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('tailwind-scrollbar-hide')
+    ],
 };
