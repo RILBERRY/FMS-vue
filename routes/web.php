@@ -25,6 +25,18 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/customer/dashboard', function () {
+    return Inertia::render('Customer/Dashboard');
+})->middleware(['auth', 'verified'])->name('customer.dashboard');
+
+Route::get('/customer/invoices', function () {
+    return Inertia::render('Customer/Invoices');
+})->middleware(['auth', 'verified'])->name('customer.invoice');
+
+Route::get('/customer/orders', function () {
+    return Inertia::render('Customer/Orders');
+})->middleware(['auth', 'verified'])->name('customer.orders');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
