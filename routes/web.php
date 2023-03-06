@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -41,9 +43,12 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/invoice', function () {
-    return Inertia::render('Invoices');
-})->middleware(['auth', 'verified'])->name('invoice');
+// Route::get('/invoice', function () {
+//     return Inertia::render('Invoices');
+// })->middleware(['auth', 'verified'])->name('invoice');
+
+Route::resource('invoice', InvoiceController::class);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

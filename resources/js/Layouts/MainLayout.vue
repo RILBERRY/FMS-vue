@@ -11,10 +11,15 @@ const showingNavigationDropdown = ref(false);
 const showingSubNavigationTransLinks = ref(false);
 const showingSubNavigationSettlLinks = ref(false);
 const showingSubNavigationRepoLinks = ref(false);
+const isLoading = ref(false);
+
 </script>
 
-<template>
-    <div class="h-screen w-screen overflow-hidden flex ">
+<template >
+    <div class="w-screen h-screen bg-gray-300/70 z-20 absolute top-0 left-0" :class="{ 'hidden' : !isLoading } ">
+        <p class="text-xl font-bold">Loading....</p>
+    </div>
+    <div class="h-screen w-screen overflow-auto flex ">
         <div :class="{'w-72 ': showingNavigationDropdown, 'w-0': ! showingNavigationDropdown}"  class="flex flex-col flex-none bg-blue-600 transition-all duration-300 ease-in text-white overflow-hidden">
             <h3 class="text-center p-2 font-bold text-2xl shadow-lg w-72">Fuel Management MV</h3>
             <div class=" flex-none w-56 mx-auto pb-10 h-[100vh] overflow-y-auto scrollbar-hide">
@@ -29,27 +34,27 @@ const showingSubNavigationRepoLinks = ref(false);
                     <h3 class="text-xl font-semibold">Guarantee Fuel Pvt Ltd</H3>
                 </div>
                 <nav class="flex flex-col " >
-                    <NavLink class="hover:pl-5" :href="route('dashboard')" >DASHBOARD</NavLink>
+                    <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >DASHBOARD</NavLink>
                     <button @click="showingSubNavigationTransLinks = !showingSubNavigationTransLinks" class="inline-flex items-center p-2 mt-4 w-full text-sm font-medium leading-5 text-white rounded-lg hover:bg-white hover:text-gray-900 hover:pl-5 transition-all duration-300 ">TRANSACTION</button>
                     <div  class="flex flex-col ml-5 bg-blue-600 transition-all duration-500 ease-out text-white overflow-hidden " :class="{'h-56 opacity-100': showingSubNavigationTransLinks, ' h-0 opacity-20 ': ! showingSubNavigationTransLinks}" >
-                        <NavLink class="hover:pl-5" :href="route('invoice')" >Invoices</NavLink>
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Delivery</NavLink>
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Purchases</NavLink>
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Expenses</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('invoice.index')" @click="isLoading = true">Invoices</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Delivery</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Purchases</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Expenses</NavLink>
                     </div>
                     <button @click="showingSubNavigationSettlLinks = !showingSubNavigationSettlLinks" class="inline-flex items-center p-2 mt-4 w-full text-sm font-medium leading-5 text-white rounded-lg hover:bg-white hover:text-gray-900 hover:pl-5 transition-all duration-300 ">SETTLEMENT</button>
                     <div  class="flex flex-col ml-5 bg-blue-600 transition-all duration-500 ease-out text-white overflow-hidden " :class="{'h-28 opacity-100': showingSubNavigationSettlLinks, ' h-0 opacity-20 ': ! showingSubNavigationSettlLinks}" >
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Sales Closing</NavLink>
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Stock Closing</NavLink>
-                        <!-- <NavLink class="hover:pl-5" :href="route('dashboard')" >Purchases</NavLink> -->
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Sales Closing</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Stock Closing</NavLink>
+                        <!-- <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Purchases</NavLink> -->
                     </div>
                     <button @click="showingSubNavigationRepoLinks = !showingSubNavigationRepoLinks" class="inline-flex items-center p-2 mt-4 w-full text-sm font-medium leading-5 text-white rounded-lg hover:bg-white hover:text-gray-900 hover:pl-5 transition-all duration-300 ">REPORTS</button>
                     <div  class="flex flex-col ml-5 bg-blue-600 transition-all duration-500 ease-out text-white overflow-hidden " :class="{'h-40 opacity-100': showingSubNavigationRepoLinks, ' h-0 opacity-20 ': ! showingSubNavigationRepoLinks}" >
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Sales Report</NavLink>
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" >Stock Report</NavLink>
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" >GST report</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Sales Report</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Stock Report</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >GST report</NavLink>
                     </div>
-                   <NavLink class="hover:pl-5" :href="route('dashboard')" >SETTING</NavLink>
+                   <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >SETTING</NavLink>
                 </nav>
             </div>
         </div>

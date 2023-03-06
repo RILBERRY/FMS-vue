@@ -22,9 +22,11 @@ const showingSearchBox = ref(false)
         </template>
         <div class="max-w-7xl m-auto p-5 bg-white flex flex-col space-y-2  rounded-xl mt-5" >
             <div class="w-100 flex justify-between">
-                <DefaultButton class=" bg-blue-500 hover:bg-blue-700 before:text-xl before:font-semibold before:px-2 before:content-['+']">
-                       Invoice
-                </DefaultButton>
+                <NavLink class="w-fit" :href="route('invoice.create')"  @click="isLoading = 'true'" >
+                    <DefaultButton class=" bg-blue-500 hover:bg-blue-700 before:text-xl before:font-semibold before:px-2 before:content-['+']">
+                        Invoice
+                    </DefaultButton>
+                </NavLink>
                 <div class="flex ">
                     <button><img src="/icon/arrow_back.svg" width="20" height="20" alt="" srcset=""></button>
                     <div>1 / 12</div>
