@@ -17,7 +17,7 @@ const isLoading = ref(false);
 
 <template >
     <div class="w-screen h-screen bg-gray-300/70 z-20 absolute top-0 left-0" :class="{ 'hidden' : !isLoading } ">
-        <p class="text-xl font-bold">Loading....</p>
+        <p class="text-xl font-bold absolute top-2/4 left-2/4 translate-x-2/4 translate-y-2/4 text-white">Loading....</p>
     </div>
     <div class="h-screen w-screen overflow-auto flex ">
         <div :class="{'w-72 ': showingNavigationDropdown, 'w-0': ! showingNavigationDropdown}"  class="flex flex-col flex-none bg-blue-600 transition-all duration-300 ease-in text-white overflow-hidden">
@@ -36,6 +36,7 @@ const isLoading = ref(false);
                 <nav class="flex flex-col " >
                     <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >DASHBOARD</NavLink>
                     <button @click="showingSubNavigationTransLinks = !showingSubNavigationTransLinks" class="inline-flex items-center p-2 mt-4 w-full text-sm font-medium leading-5 text-white rounded-lg hover:bg-white hover:text-gray-900 hover:pl-5 transition-all duration-300 ">TRANSACTION</button>
+                    
                     <div  class="flex flex-col ml-5 bg-blue-600 transition-all duration-500 ease-out text-white overflow-hidden " :class="{'h-56 opacity-100': showingSubNavigationTransLinks, ' h-0 opacity-20 ': ! showingSubNavigationTransLinks}" >
                         <NavLink class="hover:pl-5" :href="route('invoice.index')" @click="isLoading = true">Invoices</NavLink>
                         <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Delivery</NavLink>
