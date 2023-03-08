@@ -27,6 +27,8 @@ const showingSearchBox = ref(false)
                         Invoice
                     </DefaultButton>
                 </NavLink>
+            </div>
+            <div class="w-100 flex justify-between">
                 <div class="flex ">
                     <button><img src="/icon/arrow_back.svg" width="20" height="20" alt="" srcset=""></button>
                     <div>1 / 12</div>
@@ -37,7 +39,7 @@ const showingSearchBox = ref(false)
                     <button class="p-2 w-10 h-10" @click="showingFilterParams = !showingFilterParams"><img src="/icon/filter_list.svg" alt="" srcset=""></button>
                 </div>
             </div>
-            <Filter :class="{' h-44 md:h-20 p-2': showingFilterParams, 'h-0 p-0': ! showingFilterParams}" ></Filter>
+            <Filter :class="{' h-44 md:h-20 p-2 ': showingFilterParams, 'h-0 p-0': ! showingFilterParams}" ></Filter>
             <div :class="{' h-12': showingSearchBox, 'h-0 ': ! showingSearchBox}" class="transition-all duration-300 ease-in" >
                 <input type="text" name="" placeholder="Search" class=" w-full bg-gray-100 text-sm rounded-md duration-300 border-solid border-gray-300 " :class="{' opacity-100 delay-300': showingSearchBox, ' opacity-0': ! showingSearchBox}">
             </div>

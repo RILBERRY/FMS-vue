@@ -6,7 +6,7 @@ import DropdownLink from './DropdownLink.vue';
 
 <template>
     <div class="w-full transition-all duration-500 ease-out overflow-hidden ">
-        <h3 class="text-center text-gray-700" >Filter by:</h3>
+        <h3 class="text-left text-gray-700" >Filter by:</h3>
         <div class="flex flex-col md:flex-row ">
             <select name="status" class=" text-sm border-solid border-gray-300 w-44 rounded-md m-1 bg-gray-200">
                 <option value="">All</option>

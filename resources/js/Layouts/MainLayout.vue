@@ -39,13 +39,13 @@ const isLoading = ref(false);
                     
                     <div  class="flex flex-col ml-5 bg-blue-600 transition-all duration-500 ease-out text-white overflow-hidden " :class="{'h-56 opacity-100': showingSubNavigationTransLinks, ' h-0 opacity-20 ': ! showingSubNavigationTransLinks}" >
                         <NavLink class="hover:pl-5" :href="route('invoice.index')" @click="isLoading = true">Invoices</NavLink>
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Delivery</NavLink>
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Purchases</NavLink>
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Expenses</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('delivery-note.index')" @click="isLoading = true" >Delivery</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('purchases.index')" @click="isLoading = true" >Purchases</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('expenses.index')" @click="isLoading = true" >Expenses</NavLink>
                     </div>
                     <button @click="showingSubNavigationSettlLinks = !showingSubNavigationSettlLinks" class="inline-flex items-center p-2 mt-4 w-full text-sm font-medium leading-5 text-white rounded-lg hover:bg-white hover:text-gray-900 hover:pl-5 transition-all duration-300 ">SETTLEMENT</button>
                     <div  class="flex flex-col ml-5 bg-blue-600 transition-all duration-500 ease-out text-white overflow-hidden " :class="{'h-28 opacity-100': showingSubNavigationSettlLinks, ' h-0 opacity-20 ': ! showingSubNavigationSettlLinks}" >
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Sales Closing</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('sales-closing.index')" @click="isLoading = true" >Sales Closing</NavLink>
                         <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Stock Closing</NavLink>
                         <!-- <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Purchases</NavLink> -->
                     </div>

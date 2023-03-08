@@ -44,13 +44,34 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route::get('/invoice', function () {
-//     return Inertia::render('Invoices');
-// })->middleware(['auth', 'verified'])->name('invoice');
-
-Route::resource('invoice', InvoiceController::class);
-
-
+    //     return Inertia::render('Invoices');
+    // })->middleware(['auth', 'verified'])->name('invoice');
+    
 Route::middleware('auth')->group(function () {
+    Route::resource('invoice', InvoiceController::class);
+//Trans
+    Route::get('transaction/delivery-note', function () {
+        return Inertia::render('DeliveryNote/Index');
+    })->name('delivery-note.index');
+
+    Route::get('transaction/purchases', function () {
+        return Inertia::render('Purchases/Index');
+    })->name('purchases.index');
+
+    Route::get('transaction/expenses', function () {
+        return Inertia::render('Expenses/Index');
+    })->name('expenses.index');
+    
+    Route::get('transaction/delivery-note/create', function () {
+        return Inertia::render('Expenses/Index');
+    })->name('expenses.index');
+
+    //Settl
+    Route::get('settlement/sales-closing', function () {
+        return Inertia::render('SalesClosing/Index');
+    })->name('sales-closing.index');
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
