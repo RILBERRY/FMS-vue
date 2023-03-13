@@ -46,7 +46,7 @@ const isLoading = ref(false);
                     <button @click="showingSubNavigationSettlLinks = !showingSubNavigationSettlLinks" class="inline-flex items-center p-2 mt-4 w-full text-sm font-medium leading-5 text-white rounded-lg hover:bg-white hover:text-gray-900 hover:pl-5 transition-all duration-300 ">SETTLEMENT</button>
                     <div  class="flex flex-col ml-5 bg-blue-600 transition-all duration-500 ease-out text-white overflow-hidden " :class="{'h-28 opacity-100': showingSubNavigationSettlLinks, ' h-0 opacity-20 ': ! showingSubNavigationSettlLinks}" >
                         <NavLink class="hover:pl-5" :href="route('sales-closing.index')" @click="isLoading = true" >Sales Closing</NavLink>
-                        <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Stock Closing</NavLink>
+                        <NavLink class="hover:pl-5" :href="route('stock-closing.index')" @click="isLoading = true" >Stock Closing</NavLink>
                         <!-- <NavLink class="hover:pl-5" :href="route('dashboard')" @click="isLoading = true" >Purchases</NavLink> -->
                     </div>
                     <button @click="showingSubNavigationRepoLinks = !showingSubNavigationRepoLinks" class="inline-flex items-center p-2 mt-4 w-full text-sm font-medium leading-5 text-white rounded-lg hover:bg-white hover:text-gray-900 hover:pl-5 transition-all duration-300 ">REPORTS</button>

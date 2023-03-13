@@ -70,6 +70,9 @@ Route::middleware('auth')->group(function () {
     Route::get('settlement/sales-closing', function () {
         return Inertia::render('SalesClosing/Index');
     })->name('sales-closing.index');
+    Route::get('settlement/stock-closing', function () {
+        return Inertia::render('StockClosing/Index');
+    })->name('stock-closing.index');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

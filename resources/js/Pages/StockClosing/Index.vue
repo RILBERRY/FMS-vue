@@ -12,19 +12,19 @@ const showingSearchBox = ref(false)
 </script>
 
 <template>
-    <Head title="Sales Closing" />
+    <Head title="Stock Closing" />
 
     <MainLayout >
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Sales Closing
+                Stock Closing
             </h2>
         </template>
         <div class="max-w-7xl m-auto p-5 bg-white flex flex-col space-y-2  rounded-xl mt-5" >
             <div class="w-100 flex justify-between">
                 <NavLink class="w-fit" :href="route('invoice.create')"  @click="isLoading = 'true'" >
                     <DefaultButton class=" bg-blue-500 hover:bg-blue-700 before:text-xl before:font-semibold before:px-2 before:content-['+']">
-                        Sales Closing
+                        Stock Closing
                     </DefaultButton>
                 </NavLink>
             </div>
@@ -46,49 +46,37 @@ const showingSearchBox = ref(false)
 
             <div class=" w-full hidden bg-gray-400 p-2 rounded-md space-x-2 md:flex justify-between">
                 <p class=" w-2/6">Date</p>
-                <p class=" w-2/6">Closing No</p>
-                <p class=" w-2/6 text-center">Opening</p>
-                <p class=" w-2/6 text-center">Sales</p>
+                <p class=" w-2/6">Stock No</p>
+                <p class=" w-2/6 text-center">Invoice No</p>
+                <p class=" w-2/6 text-center">Delivery Note</p>
                 <p class=" w-2/6 text-center">Purchases</p>
-                <p class=" w-2/6 text-center">Old Payments</p>
-                <p class=" w-2/6 text-center">Deposit</p>
-                <p class=" w-2/6 text-center">Withdraw</p>
-                <p class=" w-2/6 text-center">Balance</p>
-                <p class=" w-2/6 text-center">Safe Balance</p>
-                <p class=" w-1/6 text-right">Diff</p>
+                <p class=" w-2/6 text-center">Diesel</p>
+                <p class=" w-2/6 text-center">Petrol</p>
+                <p class=" w-2/6 text-center">Remula</p>
             </div>
             <div class=" flex flex-col space-y-2 h-[75vh] md:h-[80vh] my-20 overflow-y-scroll scrollbar-hide ">
                 <NavLink :href="route('dashboard')" class="p-0 mt-0" >
                     <TableRow class=" text-gray-900">
                         <template #row-data >
-                            <p class="md:w-2/6 before:text-gray-400 before åtext-xs before:md:hidden before:content-['Date']"> 2023-02-01</p>
-                            <p class="md:w-2/6 before:text-gray-400 before åtext-xs before:md:hidden before:content-['Closing-No']"> SC-2023-01221</p>
+                            <p class="md:w-2/6 before:text-gray-400 ml-2 mt-2 before:text-xs before:md:hidden before:content-['Date']"> 2023-02-01</p>
+                            <p class="md:w-2/6 before:text-gray-400 before:text-xs before:md:hidden before:content-['Stock-No']"> SC-2023-01221</p>
                             <div class=" md:w-2/6  flex justify-end md:justify-center  space-x-2">
-                                <p class="before:text-gray-400 beforetext-xs before:md:hidden before:content-['Opening']"> 2,350</p>
+                                <p class="before:text-gray-400 before:text-xs before:md:hidden before:content-['Invoice-No']"> INV 2100</p>
                             </div>
                             <div class=" md:w-2/6  flex justify-end md:justify-center  space-x-2">
-                                <p class="before:text-gray-400 beforetext-xs before:md:hidden before:content-['Sales']"> 23,233.12</p>
+                                <p class="before:text-gray-400 before:text-xs before:md:hidden before:content-['Delivery-Note']"> DN 3200</p>
                             </div>
                             <div class=" md:w-2/6  flex justify-end md:justify-center  space-x-2">
-                                <p class="before:text-gray-400 beforetext-xs before:md:hidden before:content-['SalPurchaseses']"> 123,123.23</p>
+                                <p class="before:text-gray-400 before:text-xs before:md:hidden before:content-['Purchases']"> PV 5400</p>
                             </div>
                             <div class=" md:w-2/6  flex justify-end md:justify-center  space-x-2">
-                                <p class="before:text-gray-400 beforetext-xs before:md:hidden before:content-['Old-Payment']"> 35,223.30</p>
+                                <p class="before:text-gray-400 before:text-xs before:md:hidden before:content-['Diesel']"> 35,223 Ltr<span class="relative text-green-600 -left-2 -top-3 text-xs">+1,357</span></p>
                             </div>
                             <div class=" md:w-2/6  flex justify-end md:justify-center  space-x-2">
-                                <p class="before:text-gray-400 beforetext-xs before:md:hidden before:content-['Deposit']"> 350.11</p>
+                                <p class="before:text-gray-400 before:text-xs before:md:hidden before:content-['Petrol']"> 350 Ltr<span class="relative text-red-600 -left-2 -top-3 text-xs">-57</span></p>
                             </div>
                             <div class=" md:w-2/6  flex justify-end md:justify-center  space-x-2">
-                                <p class="before:text-gray-400 beforetext-xs before:md:hidden before:content-['Withdraw']"> 23,441.11</p>
-                            </div>
-                            <div class=" md:w-2/6  flex justify-end md:justify-center  space-x-2">
-                                <p class="before:text-gray-400 beforetext-xs before:md:hidden before:content-['Balance']"> 11,213.50</p>
-                            </div>
-                            <div class=" md:w-2/6  flex justify-end md:justify-center  space-x-2">
-                                <p class="before:text-gray-400 beforetext-xs before:md:hidden before:content-['Safe-Balance']"> 12,312.00</p>
-                            </div>
-                            <div class=" md:w-1/6  flex justify-end md:justify-center  space-x-2">
-                                <p class="before:text-gray-400 beforetext-xs before:md:hidden before:content-['Diff']"> 15.00</p>
+                                <p class="before:text-gray-400 before:text-xs before:md:hidden before:content-['Remula']"> 40 Ltr<span class="relative text-green-600 -left-2 -top-3 text-xs">+57</span></p>
                             </div>
                         </template>
                     </TableRow>
